@@ -1,4 +1,4 @@
-# gottt
+# gottt - this is main package
 package main
 
 import (
