@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"os"
 	"strconv"
+	"strings"
 )
 
 var gameHistory []int
@@ -16,6 +17,29 @@ func BuildGameMap() map[int]string {
 		gameMap[i] = strconv.Itoa(i)
 	}
 	return gameMap
+}
+
+//MarkerSelection allow the user to choose whether to play using "X" or "O"
+func MarkerSelection() (string, string) {
+
+	var selectedMark string
+
+	fmt.Print("\nWelcome, please hit X or O to choose your marker: ")
+	for {
+		fmt.Scan(&selectedMark)
+		switch strings.ToUpper(selectedMark) {
+		case "X":
+			humanMark := "X"
+			computerMark := "O"
+			return humanMark, computerMark
+		case "O":
+			humanMark := "O"
+			computerMark := "X"
+			return humanMark, computerMark
+		default:
+			fmt.Print("\nInvalid option, you must choose between X or O. Please try again: ")
+		}
+	}
 }
 
 //AskUser gets input from user
