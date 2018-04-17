@@ -1,5 +1,5 @@
 # gottt - this is main package
-package main
+```package main
 
 import (
 	"tictactoe"
@@ -18,3 +18,4 @@ func main() {
 		tictactoe.CheckWinner(gameMap)
 	}
 }
+```
