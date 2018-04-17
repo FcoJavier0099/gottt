@@ -1,6 +1,4 @@
 # gottt
-TicTacToe game programmed with Go
-
 package main
 
 import (
