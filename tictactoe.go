@@ -42,6 +42,23 @@ func MarkerSelection() (string, string) {
 	}
 }
 
+//WhoStarts allow user to select who makes the first move by choosing "C" for computer or "H" for human
+func WhoStarts() string {
+	var firstPlayer string
+	for {
+		fmt.Print("\nWho should play first? Choose (H)uman or (C)omputer: ")
+		fmt.Scan(&firstPlayer)
+		firstPlayer = strings.ToUpper(firstPlayer)
+		if firstPlayer == "H" {
+			return "H"
+		} else if firstPlayer == "C" {
+			return "C"
+		} else {
+			fmt.Println("\nINVALID ENTRY.  You must choose H or C.\nPlease try again...")
+		}
+	}
+}
+
 //AskUser gets input from user
 func AskUser() int {
 	for {
