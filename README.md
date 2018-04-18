@@ -1,5 +1,5 @@
-# gottt
-package main
+# gottt - this is main package
+```package main
 
 import (
 	"tictactoe"
@@ -7,17 +7,15 @@ import (
 
 func main() {
 	gameMap := tictactoe.BuildGameMap()
-
-	var mark = [2]string{"X", "O"}
+	humanMark, computerMark := tictactoe.MarkerSelection()
 
 	for {
 		computerMove := tictactoe.ComputerMove()
-		tictactoe.PlayMove(gameMap, computerMove, mark[0])
-		// tictactoe.DisplayGameHistory()
+		tictactoe.PlayMove(gameMap, computerMove, computerMark)
 		tictactoe.CheckWinner(gameMap)
-		playerMove := tictactoe.AskUser()
-		tictactoe.PlayMove(gameMap, playerMove, mark[1])
-		// tictactoe.DisplayGameHistory()
+		humanMove := tictactoe.AskUser()
+		tictactoe.PlayMove(gameMap, humanMove, humanMark)
 		tictactoe.CheckWinner(gameMap)
 	}
 }
+```
