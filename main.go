@@ -6,17 +6,32 @@ import (
 
 func main() {
 	gameMap := tictactoe.BuildGameMap()
+	humanMark, computerMark := tictactoe.MarkerSelection()
 
-	var mark = [2]string{"X", "O"}
-
-	for {
-		computerMove := tictactoe.ComputerMove()
-		tictactoe.PlayMove(gameMap, computerMove, mark[0])
-		// tictactoe.DisplayGameHistory()
-		tictactoe.CheckWinner(gameMap)
-		playerMove := tictactoe.AskUser()
-		tictactoe.PlayMove(gameMap, playerMove, mark[1])
-		// tictactoe.DisplayGameHistory()
-		tictactoe.CheckWinner(gameMap)
+	if tictactoe.WhoStarts() == "C" {
+		for {
+			move := tictactoe.ComputerMove()
+			mark := computerMark
+			executeGameLogic(gameMap, move, mark)
+			move = tictactoe.AskUser()
+			mark = humanMark
+			executeGameLogic(gameMap, move, mark)
+		}
+	} else {
+		for {
+			tictactoe.DrawBoard(gameMap)
+			move := tictactoe.AskUser()
+			mark := humanMark
+			executeGameLogic(gameMap, move, mark)
+			move = tictactoe.ComputerMove()
+			mark = computerMark
+			executeGameLogic(gameMap, move, mark)
+		}
 	}
+
+}
+
+func executeGameLogic(gameMap map[int]string, move int, mark string) {
+	tictactoe.PlayMove(gameMap, move, mark)
+	tictactoe.CheckWinner(gameMap)
 }
