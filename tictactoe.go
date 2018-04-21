@@ -29,13 +29,9 @@ func MarkerSelection() (string, string) {
 		fmt.Scan(&selectedMark)
 		switch strings.ToUpper(selectedMark) {
 		case "X":
-			humanMark := "X"
-			computerMark := "O"
-			return humanMark, computerMark
+			return "X", "O" // human mark, computer mark
 		case "O":
-			humanMark := "O"
-			computerMark := "X"
-			return humanMark, computerMark
+			return "O", "X" // human mark, computer mark
 		default:
 			fmt.Print("\nInvalid option, you must choose between X or O. Please try again: ")
 		}
